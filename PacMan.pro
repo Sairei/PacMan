@@ -30,7 +30,8 @@ SOURCES += \
     sommet.cpp \
     profil.cpp \
     vueprofil.cpp \
-    entite.cpp
+    entite.cpp \
+    joueur.cpp
 
 HEADERS += \
         mainwindow.h \

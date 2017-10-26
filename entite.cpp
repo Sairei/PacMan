@@ -40,32 +40,32 @@ void entite::SetY(int y)
 
 bool entite::MoveUp()
 {
-    this->dir[0] = -1;
-    this->dir[1] = 0;
-
-    return true;1
-}
-
-bool entite::MoveDown()
-{
-    this->dir[0] = 1;
-    this->dir[1] = 0;
-
-    return true;
-}
-
-bool entite::MoveLeft()
-{
     this->dir[0] = 0;
     this->dir[1] = -1;
 
     return true;
 }
 
-bool entite::MoveRight()
+bool entite::MoveDown()
 {
     this->dir[0] = 0;
     this->dir[1] = 1;
+
+    return true;
+}
+
+bool entite::MoveLeft()
+{
+    this->dir[0] = -1;
+    this->dir[1] = 0;
+
+    return true;
+}
+
+bool entite::MoveRight()
+{
+    this->dir[0] = 1;
+    this->dir[1] = 0;
 
     return true;
 }
