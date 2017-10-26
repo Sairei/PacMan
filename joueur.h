@@ -1,13 +1,13 @@
-#ifndef PACMAN_H
-#define PACMAN_H
+#ifndef JOUEUR_H
+#define JOUEUR_H
 
-#include "personnage.h"
+#include "entite.h"
 
-class pacman : public personnage
+class joueur : public entite
 {
     public:
-        pacman(int x, int y);
+        joueur(int x, int y);
         bool Move(int Event);
 };
 
-#endif // PACMAN_H
+#endif // JOUEUR_H

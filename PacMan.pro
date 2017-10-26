@@ -29,7 +29,8 @@ SOURCES += \
     graph.cpp \
     sommet.cpp \
     profil.cpp \
-    vueprofil.cpp
+    vueprofil.cpp \
+    entite.cpp
 
 HEADERS += \
         mainwindow.h \
