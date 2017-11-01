@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
+QT += widgets
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -24,25 +24,41 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 
 SOURCES += \
-        main.cpp \
-        mainwindow.cpp \
+    controleur.cpp \
+  #  entite.cpp \
+  # gameview.cpp \
     graph.cpp \
-    sommet.cpp \
+  #  joueur.cpp \
+    main.cpp \
+    mainwindow.cpp \
+    modele.cpp \
     profil.cpp \
-    vueprofil.cpp \
-    entite.cpp \
-    joueur.cpp
+    sommet.cpp \
+    tilemanager.cpp \
+    vuemenu.cpp \
+    vueprofile.cpp
 
 HEADERS += \
-        mainwindow.h \
-    graph.h \
-    sommet.h \
     const.h \
+    controleur.h \
+ #   entite.h \
+ #   gameview.h \
+    graph.h \
+ #   joueur.h \
+    mainwindow.h \
+    modele.h \
     profil.h \
-    entite.h \
-    joueur.h \
-    vueprofil.h
+    sommet.h \
+    tilemanager.h \
+    vuemenu.h \
+    vueprofile.h
+
+
 
 FORMS += \
-        mainwindow.ui \
-    vueprofil.ui
+    mainwindow.ui \
+    vueprofile.ui \
+    vuemenu.ui
+
+RESOURCES += \
+    resources.qrc

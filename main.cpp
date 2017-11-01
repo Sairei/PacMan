@@ -3,13 +3,22 @@
 #include <iostream>
 #include "graph.h"
 #include "profil.h"
-#include "vueprofil.h"
+#include "vueprofile.h"
+#include <QStackedWidget>
+#include <QVBoxLayout>
 
 using namespace std;
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
+
+    MainWindow w;
+    w.show();
+
+
+    //box_layout.addWidget(&widgetStack);
+    //w.setLayout(&box_layout);
 
 
 //    string fileName = "../PacMan/levels/levelTest.lvl";
@@ -20,9 +29,6 @@ int main(int argc, char *argv[])
 
 //    p->saveProfile("../PacMan/profil");
 
-    VueProfil vp;
-    vp.setProfil(Profil::loadProfile("../PacMan/profil/pierre.pf"));
-    vp.show();
 
     return a.exec();
 }
