@@ -5,6 +5,7 @@
 #-------------------------------------------------
 
 QT += widgets
+QT += xml
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -24,41 +25,97 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 
 SOURCES += \
-    controleur.cpp \
+    #controleur.cpp \
   #  entite.cpp \
-  # gameview.cpp \
+    gameview.cpp \
     graph.cpp \
   #  joueur.cpp \
     main.cpp \
     mainwindow.cpp \
-    modele.cpp \
+    #modele.cpp \
     profil.cpp \
-    sommet.cpp \
+    #sommet.cpp \
     tilemanager.cpp \
     vuemenu.cpp \
-    vueprofile.cpp
+    vueprofile.cpp \
+    collectableitem.cpp \
+    dotitem.cpp \
+    gamescene.cpp \
+    tilemap.cpp \
+    superdotitem.cpp \
+    entity.cpp \
+    pacman.cpp \
+    blocitem.cpp \
+    muritem.cpp \
+    blinky.cpp \
+    clyde.cpp \
+    ghost.cpp \
+    afraidghost.cpp \
+    flashafraidghost.cpp \
+    inky.cpp \
+    pinky.cpp \
+    deadghost.cpp \
+    spawnblocclyde.cpp \
+    spawnblocblinky.cpp \
+    spawnblocinky.cpp \
+    spawnblocpinky.cpp \
+    hud.cpp \
+    mysteryitem.cpp \
+    mysterybloc.cpp \
+    vuecreationprofil.cpp \
+    testmodulegraph.cpp \
+    testmodulemap.cpp
 
 HEADERS += \
     const.h \
-    controleur.h \
+    #controleur.h \
  #   entite.h \
- #   gameview.h \
+    gameview.h \
     graph.h \
  #   joueur.h \
     mainwindow.h \
-    modele.h \
+    #modele.h \
     profil.h \
-    sommet.h \
+    #sommet.h \
     tilemanager.h \
     vuemenu.h \
-    vueprofile.h
+    vueprofile.h \
+    collectableitem.h \
+    dotitem.h \
+    gamescene.h \
+    tilemap.h \
+    superdotitem.h \
+    entity.h \
+    pacman.h \
+    blocitem.h \
+    muritem.h \
+    blinky.h \
+    clyde.h \
+    ghost.h \
+    afraidghost.h \
+    flashafraidghost.h \
+    inky.h \
+    pinky.h \
+    deadghost.h \
+    spawnblocclyde.h \
+    spawnblocblinky.h \
+    spawnblocinky.h \
+    spawnblocpinky.h \
+    hud.h \
+    mysteryitem.h \
+    mysterybloc.h \
+    vuecreationprofil.h \
+    testmodulegraph.h \
+    testmodulemap.h
 
 
+CONFIG += c++11
 
 FORMS += \
     mainwindow.ui \
     vueprofile.ui \
-    vuemenu.ui
+    vuemenu.ui \
+    vuecreationprofil.ui
 
 RESOURCES += \
     resources.qrc

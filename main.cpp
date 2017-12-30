@@ -6,15 +6,24 @@
 #include "vueprofile.h"
 #include <QStackedWidget>
 #include <QVBoxLayout>
+#include "tilemap.h"
+#include "afraidghost.h"
+#include "testmodulegraph.h"
+#include "testmodulemap.h"
 
 using namespace std;
 
 int main(int argc, char *argv[])
 {
-    QApplication a(argc, argv);
 
+
+    //TestModuleGraph *t = new TestModuleGraph();
+    //TestModuleMap *m = new TestModuleMap();
+    QApplication a(argc, argv);
     MainWindow w;
     w.show();
+
+
 
 
     //box_layout.addWidget(&widgetStack);

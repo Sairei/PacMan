@@ -14,7 +14,6 @@
 #include <sstream>
 
 
-
 using namespace std;
 
 VueProfile::VueProfile(QWidget *parent) :
@@ -22,6 +21,7 @@ VueProfile::VueProfile(QWidget *parent) :
     ui(new Ui::VueProfile)
 {
     ui->setupUi(this);
+    VueProfile::mw = (MainWindow*) parent;
     //p = Profil::loadProfile("../PacMan/profil/"+profil+".pf");
 
     //QString str(p->getNom().c_str());
@@ -31,6 +31,10 @@ VueProfile::VueProfile(QWidget *parent) :
 VueProfile::~VueProfile()
 {
     delete ui;
+}
+
+void VueProfile::setMainWindow(MainWindow *w){
+       VueProfile::mw = w;
 }
 
 void VueProfile::setProfil(Profil *p){
@@ -70,7 +74,7 @@ void VueProfile::setProfil(Profil *p){
         std::stringstream s;
         s << "Niveau " << i << std::endl << "Meilleur score : " << 0 << std::endl << "Meilleur temps : " << 0;
         std::stringstream name;
-        name << "level" << i;
+        name << i;
 
         QPushButton *bt = new QPushButton(s.str().c_str());
         bt->setStyleSheet("background-color : rgb(237, 212, 0);color: black;border: 3px solid gray;border-radius: 15px;");
@@ -78,7 +82,7 @@ void VueProfile::setProfil(Profil *p){
         bt->setMinimumHeight(50);
         bt->setAccessibleName(name.str().c_str());
 
-        connect(bt, SIGNAL (clicked()), this, SLOT (playlingLevelSelected()));
+        connect(bt, SIGNAL (clicked()), this, SLOT (selectLevel()));
 
         scrollwidget->layout()->addWidget(bt);
     }
@@ -92,12 +96,11 @@ void VueProfile::changeProfil(){
 
     QString fileName = QFileDialog::getOpenFileName(this,
         tr("Open File"), "./profil/", tr("Image Files (*.pf)"));
-
-    setProfil(Profil::loadProfile(fileName.toStdString()));
+    if(fileName != NULL)
+        setProfil(Profil::loadProfile(fileName.toStdString()));
 }
 
-void VueProfile::playlingLevelSelected(){
-
+void VueProfile::selectLevel(){
 
     // On reset d'abord tous les boutons de niveau
     QWidget *main = ui->scrollArea->widget();
@@ -115,5 +118,20 @@ void VueProfile::playlingLevelSelected(){
     if( button != NULL )
     {
         button->setStyleSheet("background-color: black; color: white; font-weight: bold;");
+        levelSelected = button->accessibleName();
+    }
+}
+
+void VueProfile::playlingLevelSelected(){
+
+    if(levelSelected != NULL){
+        int tileMapToLaunch;
+
+        QString tileMap("xml_level");
+
+        tileMap = tileMap+levelSelected+".xml";
+
+        VueProfile::mw->launchGame(p, tileMap);
+        //((MainWindow*) this->parent()->parent())->launchGame(tileMap);
     }
 }

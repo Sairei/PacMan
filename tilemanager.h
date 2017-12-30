@@ -4,18 +4,21 @@
 #include <QPixmap>
 #include <QVector>
 #include <QString>
+#include "tilemap.h"
+#include "const.h"
 
 class TileManager
 {
-    public:
-        TileManager(QString filename);
-        QVector<QPixmap> Tiles();
+public:
+    TileManager(QString filename);
+    QVector<QPixmap> Tiles();
 
-        QPixmap drawPixmapLevel();
 
-    private:
-        QVector<QPixmap> tiles;
-        //Pointeur du pixmap du tileset au cas ou
+    QPixmap drawTileMap(TileMap &map);
+
+private:
+    QVector<QPixmap> tiles;
+
 };
 
 #endif // TILESET_H

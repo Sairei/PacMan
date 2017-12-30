@@ -8,7 +8,7 @@ using namespace std;
 Profil::Profil(string name)
 {
     score = 0;
-    niv_max_atteint = 0;
+    niv_max_atteint = 1;
     classement = -1;
     nom = name;
 }
@@ -26,6 +26,8 @@ Profil::Profil(){
     classement = -1;
     nom = "anonymousse";
 }
+
+
 
 Profil* Profil::loadProfile(string filename){
     ifstream file(filename,ios::in);
@@ -55,6 +57,10 @@ Profil* Profil::loadProfile(string filename){
         cout << "impossible d'ouvrir le fichier" << endl;
         return nullptr;
     }
+}
+
+void Profil::setNivMax(int niv){
+    this->niv_max_atteint = niv;
 }
 
 void Profil::saveProfile(string directory){

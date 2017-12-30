@@ -1,5 +1,6 @@
 #include "tilemanager.h"
 #include <QPainter>
+//#include "levels.h"
 
 TileManager::TileManager(QString filename) : tiles()
 {
@@ -8,7 +9,8 @@ TileManager::TileManager(QString filename) : tiles()
     width = tileset.width();
     height = tileset.height();
 
-    int tilesize = 32;
+    int tilesize = T_SIZE;
+    //tiles.append(QPixmap(0,0));//Tile numéroté à partir de 1,on ajoute un pixmap vide en indice 0
 
     for(int h = 0; h < height / tilesize; h++)
     {
@@ -20,17 +22,34 @@ TileManager::TileManager(QString filename) : tiles()
         }
     }
 
+
+
 }
 
-QPixmap TileManager::drawPixmapLevel()
+
+
+
+QPixmap TileManager::drawTileMap(TileMap &map)
 {
-    //Obtenir la taille du level en pixel
-    QPixmap level(600,800);
+    int tilesize = T_SIZE;
+    int w = map.width();
+    int h = map.height();
+
+    QPixmap level(w * tilesize, h * tilesize);
     QPainter painter(&level);
-    //Lire le fichier ou une matrice pour peindre le level
-    //painter.drawPixmap(...)
+
+    for(int r = 0; r < h; r++)
+    {
+        for(int c = 0; c < w; c++)
+        {
+            painter.drawPixmap(c * tilesize, r * tilesize, tiles[map.tile(r, c)]);
+        }
+    }
+
     return level;
 }
+
+
 
 QVector<QPixmap> TileManager::Tiles()
 {
